@@ -1,0 +1,157 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Seven Shape Studies</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        :root {
+            color-scheme: dark;
+            font-family: Georgia, "Times New Roman", serif;
+            background: #101827;
+            color: #edf3fa;
+        }
+
+        body {
+            margin: 0;
+            padding: 32px 20px 48px;
+        }
+
+        main {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-content: center;
+            gap: 28px 22px;
+            min-height: calc(100vh - 80px);
+        }
+
+        figure {
+            width: 200px;
+            margin: 0;
+        }
+
+        svg {
+            display: block;
+            width: 200px;
+            height: 300px;
+            background: #18263a;
+            outline: 5px solid #a78bfa;
+            outline-offset: -5px;
+            box-shadow: 0 8px 20px rgb(3 8 18 / 40%);
+        }
+
+        figcaption {
+            padding-top: 10px;
+            text-align: center;
+            font-size: 1rem;
+            font-weight: 700;
+            line-height: 1.35;
+        }
+    </style>
+</head>
+<body>
+    <main aria-label="Seven SVG artworks">
+        <figure>
+            <svg width="200" height="300" viewBox="0 0 200 300" role="img" aria-labelledby="art1-title">
+                <circle cx="100" cy="146" r="59" fill="#c5f36a" fill-opacity=".72"/>
+                <circle cx="100" cy="146" r="39" fill="#44d4c2"/>
+                <circle cx="100" cy="146" r="72" fill="none" stroke="#a78bfa" stroke-width="3" stroke-dasharray="3 9"/>
+                <circle cx="100" cy="146" r="10" fill="#dce7f3"/>
+                <line x1="25" y1="221" x2="175" y2="71" stroke="#172033" stroke-width="3" stroke-linecap="round"/>
+                <line x1="34" y1="238" x2="82" y2="190" stroke="#a78bfa" stroke-width="7" stroke-linecap="round"/>
+                <line x1="118" y1="154" x2="166" y2="106" stroke="#44d4c2" stroke-width="7" stroke-linecap="round"/>
+                <line x1="24" y1="270" x2="176" y2="270" stroke="#172033" stroke-width="1" stroke-opacity=".45"/>
+            </svg>
+            <figcaption>1. Line and Circle</figcaption>
+        </figure>
+
+        <figure>
+            <svg width="200" height="300" viewBox="0 0 200 300" role="img" aria-labelledby="art2-title">
+                <rect x="16" y="24" width="168" height="252" rx="26" fill="#44d4c2"/>
+                <rect x="29" y="37" width="142" height="226" rx="18" fill="#dce7f3"/>
+                <rect x="29" y="37" width="142" height="75" rx="18" fill="#ff7b72"/>
+                <rect x="29" y="94" width="142" height="18" fill="#ff7b72"/>
+                <circle cx="100" cy="150" r="43" fill="#c5f36a"/>
+                <circle cx="100" cy="150" r="27" fill="#a78bfa"/>
+                <circle cx="100" cy="150" r="10" fill="#dce7f3"/>
+                <circle cx="54" cy="211" r="8" fill="#44d4c2"/>
+                <circle cx="146" cy="211" r="13" fill="#44d4c2" fill-opacity=".55"/>
+                <rect x="83" y="224" width="34" height="5" rx="2.5" fill="#72839e"/>
+            </svg>
+            <figcaption>2. Circle and Rectangle</figcaption>
+        </figure>
+
+        <figure>
+            <svg width="200" height="300" viewBox="0 0 200 300" role="img" aria-labelledby="art3-title">
+                <polyline points="18,267 45,232 73,240 96,183 124,195 151,122 181,37" fill="none" stroke="#44d4c2" stroke-width="17" stroke-linecap="round" stroke-linejoin="round" stroke-opacity=".32"/>
+                <polyline points="18,267 45,232 73,240 96,183 124,195 151,122 181,37" fill="none" stroke="#172033" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                <polyline points="23,277 50,242 78,250 101,193 129,205 156,132 186,47" fill="none" stroke="#a78bfa" stroke-width="2" stroke-dasharray="2 7" stroke-linecap="round"/>
+                <circle cx="45" cy="232" r="7" fill="#c5f36a"/>
+                <circle cx="96" cy="183" r="10" fill="#ff7b72"/>
+                <circle cx="151" cy="122" r="6" fill="#c5f36a"/>
+                <circle cx="181" cy="37" r="13" fill="#ff7b72"/>
+                <circle cx="181" cy="37" r="4" fill="#dce7f3"/>
+                <circle cx="27" cy="73" r="3" fill="#72839e"/>
+                <circle cx="66" cy="45" r="2" fill="#72839e"/>
+                <circle cx="130" cy="70" r="3" fill="#72839e"/>
+                <circle cx="157" cy="254" r="2" fill="#72839e"/>
+            </svg>
+            <figcaption>3. Polyline and Circle</figcaption>
+        </figure>
+
+        <figure>
+            <svg width="200" height="300" viewBox="0 0 200 300" role="img" aria-labelledby="art5-title">
+                <rect x="14" y="14" width="172" height="272" rx="4" fill="#172033"/>
+                <rect x="24" y="24" width="152" height="252" rx="2" fill="#ff7b72"/>
+                <rect x="34" y="34" width="132" height="232" fill="#c5f36a"/>
+                <line x1="34" y1="177" x2="166" y2="177" stroke="#a78bfa" stroke-width="5"/>
+                <line x1="64" y1="150" x2="64" y2="266" stroke="#172033" stroke-width="2" stroke-dasharray="5 5"/>
+                <line x1="146" y1="178" x2="146" y2="266" stroke="#172033" stroke-width="2" stroke-dasharray="5 5"/>
+                <line x1="100" y1="34" x2="100" y2="116" stroke="#dce7f3" stroke-width="3" stroke-linecap="round"/>
+                <circle cx="100" cy="119" r="33" fill="#a78bfa"/>
+                <circle cx="100" cy="119" r="23" fill="#ff7b72"/>
+                <circle cx="100" cy="119" r="4" fill="#dce7f3"/>
+                <circle cx="64" cy="215" r="8" fill="#44d4c2"/>
+                <circle cx="146" cy="231" r="13" fill="#44d4c2"/>
+            </svg>
+            <figcaption>4. Circle, Line, and Rectangle</figcaption>
+        </figure>
+
+        <figure>
+            <svg width="200" height="300" viewBox="0 0 200 300" role="img" aria-labelledby="art6-title">
+                <polygon points="0,220 43,167 72,198 121,110 145,145 200,62 200,300 0,300" fill="#44d4c2"/>
+                <polygon points="0,245 43,192 72,223 121,135 145,170 200,87 200,300 0,300" fill="#c5f36a"/>
+                <polygon points="0,275 43,222 72,253 121,165 145,200 200,117 200,300 0,300" fill="#a78bfa"/>
+                <polygon points="121,110 135,132 145,145 159,149 145,170 131,148" fill="#dce7f3"/>
+                <polyline points="0,221 43,168 72,199 121,111 145,146 200,63" fill="none" stroke="#172033" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                <polyline points="18,47 57,63 83,40 113,59 146,34 183,49" fill="none" stroke="#72839e" stroke-width="2" stroke-dasharray="4 6" stroke-linecap="round"/>
+                <polyline points="20,66 39,74 52,61" fill="none" stroke="#ff7b72" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <figcaption>5. Polyline and Polygon</figcaption>
+        </figure>
+
+        <figure>
+            <svg width="200" height="300" viewBox="0 0 200 300" role="img" aria-labelledby="art7-title">
+                <rect x="12" y="12" width="176" height="276" rx="22" fill="#172033"/>
+                <rect x="22" y="22" width="156" height="256" rx="16" fill="#44d4c2"/>
+                <polygon points="22,177 54,143 80,164 117,110 143,134 178,92 178,278 22,278" fill="#c5f36a"/>
+                <polygon points="22,208 55,181 82,195 119,154 146,174 178,139 178,278 22,278" fill="#a78bfa"/>
+                <ellipse cx="119" cy="77" rx="25" ry="36" fill="#ff7b72" transform="rotate(28 119 77)"/>
+                <ellipse cx="119" cy="77" rx="14" ry="23" fill="#c5f36a" transform="rotate(28 119 77)"/>
+                <circle cx="53" cy="67" r="4" fill="#dce7f3"/>
+                <circle cx="77" cy="49" r="2.5" fill="#dce7f3"/>
+                <circle cx="157" cy="69" r="3" fill="#dce7f3"/>
+                <circle cx="90" cy="97" r="2" fill="#dce7f3"/>
+                <polyline points="22,225 55,198 82,212 119,171 146,191 178,156" fill="none" stroke="#dce7f3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-opacity=".8"/>
+                <polyline points="36,257 65,244 90,251" fill="none" stroke="#172033" stroke-width="2" stroke-dasharray="3 5" stroke-linecap="round"/>
+            </svg>
+            <figcaption>6. All Five Shapes</figcaption>
+        </figure>
+    </main>
+</body>
+</html>
