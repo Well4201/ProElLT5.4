@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>8 HTML5 Canvas Graphical Arts</title>
+    <style>
+      :root {
+        --bg: #f4f1ea;
+        --text: #333;
+        --muted: #555;
+        --panel: #ffffff;
+        --shadow: rgba(0, 0, 0, 0.15);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        padding: 24px;
+        font-family: Arial, sans-serif;
+        background: var(--bg);
+        text-align: center;
+      }
+
+      h1 {
+        margin: 0 0 20px;
+        color: var(--text);
+        font-size: 22px;
+      }
+
+      .grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        max-width: 960px;
+        margin: 0 auto;
+      }
+
+      figure {
+        margin: 0;
+      }
+
+      canvas {
+        display: block;
+        background: var(--panel);
+        border-radius: 8px;
+        box-shadow: 0 2px 6px var(--shadow);
+      }
+
+      figcaption {
+        margin-top: 6px;
+        font-size: 14px;
+        color: var(--muted);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>8 Graphical Arts (HTML5 Canvas, 200 x 200)</h1>
+    <div class="grid" id="grid"></div>
+
+    <script>
+      function circle(c, x, y, r, color) {
+        c.fillStyle = color;
+        c.beginPath();
+        c.arc(x, y, r, 0, Math.PI * 2);
+        c.fill();
+      }
+
+      function rect(c, x, y, w, h, color) {
+        c.fillStyle = color;
+        c.fillRect(x, y, w, h);
+      }
+
+      function poly(c, pts, color) {
+        c.fillStyle = color;
+        c.beginPath();
+        c.moveTo(pts[0][0], pts[0][1]);
+
+        for (let i = 1; i < pts.length; i++) {
+          c.lineTo(pts[i][0], pts[i][1]);
+        }
+
+        c.closePath();
+        c.fill();
+      }
+
+      function ellipse(c, x, y, rx, ry, color) {
+        c.fillStyle = color;
+        c.beginPath();
+        c.ellipse(x, y, rx, ry, 0, 0, Math.PI * 2);
+        c.fill();
+      }
+
+      const arts = [
+        {
+          name: "House",
+          draw(c) {
+            rect(c, 0, 0, 200, 200, "#cfeefc");
+            rect(c, 0, 160, 200, 40, "#7ed37e");
+            rect(c, 130, 40, 18, 40, "#a05a3c");
+            rect(c, 45, 85, 110, 80, "#ffd166");
+            poly(c, [[30, 90], [100, 35], [170, 90]], "#ef476f");
+            rect(c, 88, 120, 28, 45, "#8d5a3b");
+            circle(c, 110, 144, 2.5, "#ffd166");
+            rect(c, 56, 100, 26, 26, "#8ecae6");
+            rect(c, 118, 100, 26, 26, "#8ecae6");
+            c.fillStyle = "#fff";
+            c.fillRect(68, 100, 2, 26);
+            c.fillRect(56, 112, 26, 2);
+            c.fillRect(130, 100, 2, 26);
+            c.fillRect(118, 112, 26, 2);
+            circle(c, 30, 30, 14, "#ffe066");
+          }
+        },
+        {
+          name: "Rocket",
+          draw(c) {
+            rect(c, 0, 0, 200, 200, "#1d2a4d");
+            [[30, 40], [160, 30], [170, 120], [25, 130], [60, 170], [140, 180], [100, 20]].forEach((p) => {
+              circle(c, p[0], p[1], 2, "#fff");
+            });
+            poly(c, [[100, 100], [100, 100]], "#000");
+
+            // flame
+            poly(c, [[85, 140], [115, 140], [100, 190]], "#ff9f1c");
+            poly(c, [[92, 140], [108, 140], [100, 170]], "#ffe066");
+
+            // fins
+            poly(c, [[75, 110], [52, 150], [78, 140]], "#ef476f");
+            poly(c, [[125, 110], [148, 150], [122, 140]], "#ef476f");
+
+            // body
+            c.fillStyle = "#f1f1f1";
+            c.beginPath();
+            c.moveTo(100, 20);
+            c.quadraticCurveTo(135, 60, 125, 142);
+            c.lineTo(75, 142);
+            c.quadraticCurveTo(65, 60, 100, 20);
+            c.fill();
+
+            // nose
+            c.fillStyle = "#ef476f";
+            c.beginPath();
+            c.moveTo(100, 20);
+            c.quadraticCurveTo(116, 38, 119, 58);
+            c.lineTo(81, 58);
+            c.quadraticCurveTo(84, 38, 100, 20);
+            c.fill();
+
+            circle(c, 100, 90, 16, "#3a86ff");
+            circle(c, 100, 90, 11, "#a8d8ff");
+            rect(c, 75, 125, 50, 8, "#ef476f");
+          }
+        },
+        {
+          name: "Sailboat",
+          draw(c) {
+            rect(c, 0, 0, 200, 110, "#bdeaff");
+            rect(c, 0, 110, 200, 90, "#2a9df4");
+            circle(c, 160, 40, 18, "#ffd23f");
+            rect(c, 98, 30, 4, 100, "#6b4226");
+            poly(c, [[104, 32], [104, 112], [160, 112]], "#ffffff");
+            poly(c, [[96, 50], [96, 112], [52, 112]], "#ff6b6b");
+
+            c.fillStyle = "#8d5a3b";
+            c.beginPath();
+            c.moveTo(45, 118);
+            c.lineTo(160, 118);
+            c.lineTo(140, 148);
+            c.lineTo(65, 148);
+            c.closePath();
+            c.fill();
+
+            rect(c, 45, 118, 115, 6, "#5c3a21");
+            c.strokeStyle = "#e8f6ff";
+            c.lineWidth = 3;
+            c.lineCap = "round";
+
+            for (let r = 0; r < 3; r++) {
+              for (let x = 10 + (r % 2) * 20; x < 200; x += 40) {
+                c.beginPath();
+                c.arc(x, 165 + r * 12, 10, Math.PI, 0);
+                c.stroke();
+              }
+            }
+          }
+        },
+        {
+          name: "Tree",
+          draw(c) {
+            rect(c, 0, 0, 200, 200, "#e3f4ff");
+            rect(c, 0, 165, 200, 35, "#6bbf59");
+            rect(c, 90, 100, 20, 70, "#8b5a2b");
+            poly(c, [[100, 130], [75, 100], [80, 98]], "#8b5a2b");
+            circle(c, 100, 70, 38, "#2e9d4f");
+            circle(c, 68, 95, 30, "#3cb35e");
+            circle(c, 132, 95, 30, "#3cb35e");
+            circle(c, 100, 60, 26, "#56c97a");
+            circle(c, 90, 55, 4, "#ef476f");
+            circle(c, 118, 80, 4, "#ef476f");
+            circle(c, 72, 98, 4, "#ef476f");
+            ellipse(c, 100, 170, 30, 5, "rgba(0,0,0,.15)");
+          }
+        },
+        {
+          name: "Sun & Cloud",
+          draw(c) {
+            rect(c, 0, 0, 200, 200, "#8fd3ff");
+            c.save();
+            c.translate(75, 75);
+            c.fillStyle = "#ffb703";
+
+            for (let i = 0; i < 12; i++) {
+              c.rotate(Math.PI / 6);
+              poly(c, [[-7, -42], [7, -42], [0, -62]], "#ffb703");
+            }
+
+            c.restore();
+            circle(c, 75, 75, 38, "#ffd23f");
+            circle(c, 63, 70, 4, "#6b4226");
+            circle(c, 87, 70, 4, "#6b4226");
+            c.strokeStyle = "#6b4226";
+            c.lineWidth = 3;
+            c.beginPath();
+            c.arc(75, 78, 14, 0.2, Math.PI - 0.2);
+            c.stroke();
+            circle(c, 100, 150, 24, "#fff");
+            circle(c, 128, 135, 30, "#fff");
+            circle(c, 158, 152, 22, "#fff");
+            rect(c, 100, 150, 80, 24, "#fff");
+            circle(c, 100, 162, 12, "#fff");
+            circle(c, 168, 162, 12, "#fff");
+          }
+        },
+        {
+          name: "Flower",
+          draw(c) {
+            rect(c, 0, 0, 200, 200, "#fff3e0");
+            rect(c, 96, 90, 8, 100, "#3c9d4f");
+            ellipse(c, 70, 150, 26, 11, "#4cb860");
+            ellipse(c, 132, 135, 26, 11, "#4cb860");
+
+            c.save();
+            c.translate(100, 80);
+
+            for (let i = 0; i < 8; i++) {
+              c.rotate(Math.PI / 4);
+              ellipse(c, 0, -34, 14, 24, i % 2 ? "#ff7eb6" : "#ff5c9e");
+            }
+
+            c.restore();
+            circle(c, 100, 80, 20, "#ffc933");
+            circle(c, 94, 76, 3, "#d98e04");
+            circle(c, 108, 82, 3, "#d98e04");
+            circle(c, 100, 88, 3, "#d98e04");
+            ellipse(c, 100, 192, 40, 6, "#c9a66b");
+          }
+        },
+        {
+          name: "Umbrella",
+          draw(c) {
+            rect(c, 0, 0, 200, 200, "#5b5f97");
+
+            for (let i = 0; i < 14; i++) {
+              const x = (i * 37) % 200;
+              const y = (i * 53) % 200;
+              rect(c, x, y, 2, 10, "#9aa0e8");
+            }
+
+            const cols = ["#ff6b6b", "#ffd166", "#06d6a0", "#4cc9f0"];
+            const cx = 100;
+            const cy = 100;
+            const R = 75;
+
+            for (let i = 0; i < 4; i++) {
+              const a0 = Math.PI + (Math.PI / 4) * i;
+              const a1 = a0 + Math.PI / 4;
+              c.fillStyle = cols[i];
+              c.beginPath();
+              c.moveTo(cx, cy);
+              c.arc(cx, cy, R, a0, a1);
+              c.closePath();
+              c.fill();
+            }
+
+            // scalloped edge
+            for (let i = 0; i < 4; i++) {
+              const x0 = cx - R + i * (R / 2);
+              c.fillStyle = cols[i];
+              c.beginPath();
+              c.arc(x0 + R / 4, cy, R / 4, 0, Math.PI);
+              c.fill();
+            }
+
+            c.strokeStyle = "#f1f1f1";
+            c.lineWidth = 5;
+            c.lineCap = "round";
+            c.beginPath();
+            c.moveTo(100, 100);
+            c.lineTo(100, 160);
+            c.arc(90, 160, 10, 0, Math.PI);
+            c.stroke();
+            circle(c, 100, 24, 4, "#f1f1f1");
+          }
+        },
+        {
+          name: "Fish",
+          draw(c) {
+            rect(c, 0, 0, 200, 200, "#7fd1f5");
+            rect(c, 0, 170, 200, 30, "#f2d29b");
+            poly(c, [[30, 200], [35, 150], [45, 200]], "#2fa866");
+            poly(c, [[160, 200], [170, 140], [182, 200]], "#2fa866");
+            poly(c, [[145, 100], [185, 70], [185, 130]], "#ff8c42");
+            poly(c, [[85, 60], [110, 78], [60, 78]], "#ff8c42");
+            ellipse(c, 95, 100, 55, 36, "#ff9f1c");
+
+            c.save();
+            c.beginPath();
+            c.ellipse(95, 100, 55, 36, 0, 0, Math.PI * 2);
+            c.clip();
+            rect(c, 80, 60, 10, 80, "#ffd166");
+            rect(c, 105, 60, 10, 80, "#ffd166");
+            ellipse(c, 95, 125, 55, 12, "rgba(255,255,255,.35)");
+            c.restore();
+
+            circle(c, 62, 92, 8, "#fff");
+            circle(c, 60, 92, 4, "#222");
+            c.strokeStyle = "#b45a00";
+            c.lineWidth = 3;
+            c.beginPath();
+            c.arc(50, 105, 8, 0.3, 1.2);
+            c.stroke();
+
+            c.strokeStyle = "#fff";
+            c.lineWidth = 2;
+            [[30, 60, 6], [20, 40, 4], [36, 25, 3]].forEach((b) => {
+              c.beginPath();
+              c.arc(b[0], b[1], b[2], 0, Math.PI * 2);
+              c.stroke();
+            });
+          }
+        }
+      ];
+
+      const grid = document.getElementById("grid");
+
+      arts.forEach((art) => {
+        const fig = document.createElement("figure");
+        const canvas = document.createElement("canvas");
+        const caption = document.createElement("figcaption");
+
+        canvas.width = 200;
+        canvas.height = 200;
+        caption.textContent = art.name;
+
+        fig.append(canvas, caption);
+        grid.appendChild(fig);
+        art.draw(canvas.getContext("2d"));
+      });
+    </script>
+  </body>
+</html>
